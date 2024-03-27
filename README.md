@@ -224,7 +224,7 @@
 <br>| **accuracy** |  |  | 1.00 | 1210452 |
 <br>| **macro avg** | 0.98 | 0.97 | 0.98 | 1210452 |
 <br>| **weighted avg** | 1.00 | 1.00 | 1.00 | 1210452 |
-<br>
+
 - Testing Results:
 <br>| **precision** | **recall** | **f1-score** | **support** |
 <br>|---|---|---|---|
