@@ -1,0 +1,6 @@
+.ipynb_checkpoints/
+data/*
+!data/unzip_file.ipynb
+!data/archive.zip
+!data/dataset_structure.ipynb
+dev/
