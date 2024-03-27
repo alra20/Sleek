@@ -4,6 +4,7 @@
 - Locate the file archive.zip in data folder.
 - Run the notebook unzip_file.ipynb to unzip archive.zip.
 - Run the notebook dataset_structure.ipynb.
+- Run the notebook EDA.ipynb before running ML_Models.ipynb
   
 
 <br>Objective
