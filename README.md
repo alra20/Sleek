@@ -219,8 +219,8 @@
 <br>| **weighted avg** | 1.00 | 1.00 | 1.00 | 1210452 |
 <br>
 - Testing Results:
-| **precision** | **recall** | **f1-score** | **support** |
-|---|---|---|---|
+<br>| **precision** | **recall** | **f1-score** | **support** |
+<br>|---|---|---|---|
 <br>| BENIGN | 1.00 | 1.00 | 1.00 | 1016136 |
 <br>| DDoS | 0.86 | 0.78 | 0.82 | 956 |
 <br>| PortScan | 1.00 | 1.00 | 1.00 | 53043 |
