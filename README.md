@@ -7,7 +7,7 @@
 - Run the notebook EDA.ipynb before running ML_Models.ipynb
   
 
-<br>Objective
+<br>**Objective**
 
 <br>This assignment aims to evaluate proficiency in:
 - Learning the domain
@@ -30,7 +30,7 @@
 
 <br>The data capturing period started at 9 a.m., Monday, July 3, 2017, and ended at 5 p.m. on Friday, July 7, 2017, for a total of 5 days. Monday is the normal day and only includes benign traffic. The implemented attacks include Brute Force FTP, Brute Force SSH, DoS, Heartbleed, Web Attack, Infiltration, Botnet and DDoS. They have been executed both morning and afternoon on Tuesday, Wednesday, Thursday and Friday.
 
-<br>Importing and Familiarization
+<br>**Importing and Familiarization**
 
 <br>CICIDS2017 Dataset was downloaded from Kaggle: https://www.kaggle.com/datasets/cicdataset/cicids2017
 <br>I acquired the data set and loaded it into a Jupyter Notebook environment for further analysis using Python libraries. 
@@ -41,28 +41,28 @@
 - I added the CSV file names to new column named 'source' for analysis purposes.
 - Data saved as pickle file named raw_data.pkl in data folder.
 <br>Raw Data shape: (2830743, 80).
-<br>All the above is done in script dataset_structure.ipynb.
+<br>All the above is done in the script dataset_structure.ipynb.
 
-<br>Exploratory Data Analysis (EDA)
+<br>**Exploratory Data Analysis (EDA)**
 
-<br>EDA was implemented using three distinct Python scripts:
+<br>EDA was implemented using 3 distinct Python scripts:
 - Visualization.ipynb
 - EDA.ipynb
 - ML_Models.ipynb
 
-<br>Visualization.ipynb:
+<br>**Visualization.ipynb:**
 - Loads raw_data.pkl
 - Edit titles, complete missing data (will be detailed further).
 - Generated distribution histograms for each feature. Images are located in: Images/Feature_Distribution.
 - Generated Boxplot (visual descriptive statistics) for each feature. Images are located in: Images/BoxPlot.
-- Principal Component Analysis (PCA):
+- Principal Component Analysis (**PCA**):
     - PCA was initiated to 95% of data's variance (n_components).
-    - The result was 26 principal components (PC) where the 3 mains discribed only ~40% of the variance.
+    - The result was 26 principal components (PCs) where the 3 mains discribed only ~40% of the variance.
         - 40% of the variance is not suffitient for visual interpetation.
         - I could use these 26 PCs as new features (which could save computation time) but PCs has no actual meaning except variance description thus, I chose to continue investigate the data. Using PCs as features is an option.
     - PCA explained_variance_ratio_ was plotted and saved in: Images/PCA/Explained_Variance_Ratio.png
 
-<br>EDA.ipynb:
+<br>**EDA.ipynb:**
 <br>At this script I performed preprocessing (wrangling) and statistical computations.
 <br>The Script:
 - Loads raw_data.pkl.
@@ -96,7 +96,7 @@
      - Flow Bytes/s include NA values. I checked the labels:
          - DoS Hulk    949
          - BENIGN      409
-         - Conclusion: NA values could indicate on DoS Hulk attack but further investigation on benign samples is required (False Positive).
+         - **Conclusion**: NA values could indicate on DoS Hulk attack but further investigation on benign samples is required (False Positive).
      - Missing data (NA values) were completed using features modes. Modes dictionary was saved at: utils/modes.json
      - I Generated two additional files and saved them at:
          - wrangling/raw_data_type.csv - data type
@@ -107,44 +107,44 @@
              - Observation: some of the features include only one unique value -> No contribution thus, can be discarded.
              - Data new shape (after dropping features with one value): (2830743, 72)
     
-     - Correlation between different features:
+     - **Correlation between different features:**
         <br> Dropping correlated features from data isn't always mandatory, but it's generally recommended for several reasons:
         - Redundancy: Correlated features contain overlapping information. Keeping both provides no additional insights and can even be detrimental.
         - Multicollinearity: Highly correlated features can lead to multicollinearity, where model coefficients become unreliable and interpretation difficult.
         - Model Simplicity: Fewer features often lead to simpler models that are easier to interpret and potentially less prone to overfitting (memorizing the training data instead of learning general patterns).
         - Computational Efficiency: Training models with fewer features can be faster, especially for complex algorithms.
-        <br> Correlation threshold chosen to be 0.9
+        <br> Correlation threshold chosen to be **0.9**
         <br> Correlation matrix is documented in wrangling/raw_data_correlation.csv
         <br> Correlated features names are documented in: utils/correlated_features_names.pkl
         <br> New data shape (after dropping correlated features): (2830743, 43)
-        <br> Note:
+        <br> **Note:**
         <br>There are situations where dropping correlated features might NOT be crucial:
         - Domain Knowledge: If you have strong domain knowledge and understand the meaning of both features, keeping them might be beneficial.
         - Ensemble Methods: Some ensemble methods (like Random Forests) can handle correlated features better.
         - Feature Importance: If a correlated feature still has independent predictive power, it might be worth keeping.
      
-     - Drop Duplications:
+     - **Drop Duplications:**
         <br> Duplicate data points in K-Means (ML in general) can unfairly influence cluster centers, giving more weight to redundant information and potentially drowning out unique data points.
         <br> New data shape (after drop_duplicates): (2522256, 43)
         
-     - Ouliers Suspects using IQR method
-        <br>IQR stands for Interquartile Range. It's a measure of spread or variability used in statistics, specifically focusing on the middle 50% of your data set. IQR is a valuable tool for understanding the distribution of your data, especially when outliers might be present.
+     - **Ouliers Suspects using IQR method**
+        <br>IQR stands for Interquartile Range. It's a measure of spread or variability used in statistics, specifically focusing on the middle 50% of data set. IQR is a valuable tool for understanding the distribution of the data, especially when outliers might be present.
         <br> The data is composed of benign traffic (Monday) and attacks occured during the next 4 days. Seemingly, reducing ouliers at benign samples will reduce data overlapping with the attacks. There are issues with that statment, and the process should be done very carfully but for the purpose of this assignment, IQR method will be presented to identify noisy features. Those features will NOT be dropped. 
-        <br> IQR analysis results is documented in: wrangling/raw_data_IQR_analysis.csv
+        <br> IQR analysis results are documented in: wrangling/raw_data_IQR_analysis.csv
         <br> Observation: most of the data composed out of BENIGN and distributed along all data sources (5 days).
         <br> Conclusion: most of the features include more 100k outliers. A new way will be considered.
-    - Clustering using K-Means - Unsupervised
+    - **Clustering using K-Means - Unsupervised**
         <br> The goal is to idetify benign samples overlapped with attacks by clustering
-        - Standard Scaling
+        - **Standard Scaling**
             <br> K-means clustering relies on distance calculations to group data points. When features have different scales, features with larger scales dominate the distance calculation, even if they might not be as relevant for grouping. Scaling features ensures all features contribute equally based on their relative values, not just their magnitude, leading to more meaningful clusters.
             <br> StandardScaler Standardize features by removing the mean and scaling to unit variance.
             <br> The standard score of a sample x is calculated as:
             <br> z = (x - u) / s
             <br> where u is the mean of the training samples and s is the standard deviation of the training samples.
-        - Elbow method
-            <br> The elbow method is a visual technique used to determine the optimal number of clusters (k) for K-means clustering. 
-            <br> Conclusion: Elbow method showed that K = 9 is a reasonable choice.
+        - **Elbow method**
+            <br> The elbow method is a visual technique used to determine the optimal number of clusters (k) for K-means clustering.
             <br> Elbow method graph is located in: Images/Elbow_Method.png
+            <br> Conclusion: Elbow method showed that K = 9 is a reasonable choice.
         - K-Means Clustering Conclusion: ~96% of the data belong to clusters: 8, 6, 4, 0, 7
             <br> The other 3% belong to clusters: 1, 2, 3, 5
             <br> All samples belong to clusters  1, 2, 3, 5 will be discarded.
@@ -153,20 +153,20 @@
      -  Data for ML model saved at: data/processed_data.pkl
             <br> Data Final Shape: (2386579, 43)
 
-<br> Two interesting insights:
+<br> **Two interesting insights:**
 - Feature Reduction Potential: A significant portion of the features can be eliminated due to high correlation with other features or a lack of informative value (e.g., features with only one unique value). In the industry, reducing the number of features offers several benefits, including:
     - Reduced data storage requirements
     - Improved computational efficiency (both human and machine)
     - Potential cost savings
 - Data Quality Issues: The presence of numpy.inf and NA values in the data warrants further investigation. While the cause is currently unknown, the NA values could potentially indicate a DoS Hulk attack. However, further analysis of benign samples is necessary to differentiate true DoS attempts from false positives.
 
-<br>ML_Models.ipynb
+<br>**ML_Models.ipynb**
 <br>Train and test Random Forest and GradientBoosting Classifiers
 <br>The Script:
 - Loads processed_data.pkl (located in data/processed_data.pkl).
     - Raw data loading time: 1.04 seconds
     - DataFrame occupies: 0.87 GB
-- Present samples distribution (already done in earlier stages in the project, dev folder):
+- Present samples distribution (already done in earlier stages in the project):
     - distribution plot is located in: Images/Samples_Distribution.png
     - Label Value Counts:
         - BENIGN                       2208187
@@ -184,13 +184,13 @@
         - Infiltration                      29
         - Web Attack  Sql Injection         21
         - Heartbleed                         6
-     - Conclusion: Unbalnced data
+     - Conclusion: **Unbalnced data**
      - Solution considered: weighting each sample according to it's label for example, benign gets the lowest weight because it is the most frequent and heartbleed gets the highest.
      
      - Seperate data to X - features and y - labels. features Shape: (2420904, 41). target Shape: (2420904,).
      - Encoding labels (can be performed in a lot of ways, here I chose to it by myself by mapping).
-       - Label2ID: {'BENIGN': 0, 'DDoS': 1, 'PortScan': 2, 'Bot': 3, 'Infiltration': 4, 'Web Attack  Brute Force': 5, 'Web Attack  XSS': 6, 'Web Attack  Sql Injection': 7, 'FTP-Patator': 8, 'SSH-Patator': 9, 'DoS slowloris': 10, 'DoS Slowhttptest': 11, 'DoS Hulk': 12, 'DoS GoldenEye': 13, 'Heartbleed': 14}
-        - ID2Label: {0: 'BENIGN', 1: 'DDoS', 2: 'PortScan', 3: 'Bot', 4: 'Infiltration', 5: 'Web Attack  Brute Force', 6: 'Web Attack  XSS', 7: 'Web Attack  Sql Injection', 8: 'FTP-Patator', 9: 'SSH-Patator', 10: 'DoS slowloris', 11: 'DoS Slowhttptest', 12: 'DoS Hulk', 13: 'DoS GoldenEye', 14: 'Heartbleed'}
+       - **Label2ID**: {'BENIGN': 0, 'DDoS': 1, 'PortScan': 2, 'Bot': 3, 'Infiltration': 4, 'Web Attack  Brute Force': 5, 'Web Attack  XSS': 6, 'Web Attack  Sql Injection': 7, 'FTP-Patator': 8, 'SSH-Patator': 9, 'DoS slowloris': 10, 'DoS Slowhttptest': 11, 'DoS Hulk': 12, 'DoS GoldenEye': 13, 'Heartbleed': 14}
+        - **ID2Label**: {0: 'BENIGN', 1: 'DDoS', 2: 'PortScan', 3: 'Bot', 4: 'Infiltration', 5: 'Web Attack  Brute Force', 6: 'Web Attack  XSS', 7: 'Web Attack  Sql Injection', 8: 'FTP-Patator', 9: 'SSH-Patator', 10: 'DoS slowloris', 11: 'DoS Slowhttptest', 12: 'DoS Hulk', 13: 'DoS GoldenEye', 14: 'Heartbleed'}
      - Split to Train and Test (test size = 0.5 due to volume of data)
         <br>NOTE: At the industry, data will be split to train, test, validation sets
         <br>I used stratify arg to keep same labels propotion in train and test set.
@@ -200,7 +200,7 @@
         - y Test shape: (1210452,)
      - Scaled features
          - While feature scaling is generally not required for decision-tree based algorithms like random forests, I opted to standardize the features in this instance. This decision was made to ensure consistency with the planned inclusion of other algorithms in the future that may necessitate scaled features. Due to resource constraints, this project focused solely on Random Forest and GradientBoosting. However, it is important to acknowledge that scaling can be a crucial step when employing a broader range of machine learning models.
-     - Train Random Forest:
+     - **Train Random Forest**:
         - Training run time: 2262.0181295871735 seconds
         - Prediction run time: 19.09727168083191 seconds
 - Trining Results:
@@ -252,7 +252,7 @@
 <br> In the initial stages of exploration, I attempted to train an XGBoost model. However, due to the inherent characteristics of XGBoost, training time proved to be excessively long for the project's scope. Additionally, memory usage became a significant constraint.
 <br> It's important to note that in my professional work environment, I leverage AWS SageMaker. This platform offers a variety of instance types optimized for different machine learning tasks, which can significantly improve training efficiency for resource-intensive algorithms like XGBoost.
 
-<br> Interesting insight:
+<br> **Interesting insight**:
 <br> While a comprehensive model wasn't achievable due to resource constraints, the exploration using Random Forest identified promising features for network intrusion detection of ten attack types.
 - Analysis revealed that Destination Port, Maximum Forward Packet Length, PSH Flag Count, Total Forward Packet Length, and Forward Header Length emerged as the most significant features for attack classification.
 - These findings warrant further investigation by security researchers and domain experts to refine the model and optimize detection capabilities for the identified attack types.
