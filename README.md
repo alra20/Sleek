@@ -219,27 +219,26 @@
 <br>| **weighted avg** | 1.00 | 1.00 | 1.00 | 1210452 |
 <br>
 - Testing Results:
-<br>                           precision    recall  f1-score   support
-<br>
-<br>                   BENIGN       1.00      1.00      1.00   1016136
-<br>                     DDoS       0.86      0.78      0.82       956
-<br>                 PortScan       1.00      1.00      1.00     53043
-<br>                      Bot       1.00      0.99      0.99      3934
-<br>             Infiltration       1.00      1.00      1.00     44578
-<br>  Web Attack  Brute Force       0.99      0.99      0.99      2257
-<br>          Web Attack  XSS       0.99      0.99      0.99      2208
-<br>Web Attack  Sql Injection       1.00      1.00      1.00      3968
-<br>              FTP-Patator       1.00      0.33      0.50         3
-<br>              SSH-Patator       0.83      0.33      0.48        15
-<br>            DoS slowloris       0.99      1.00      1.00     79316
-<br>         DoS Slowhttptest       1.00      1.00      1.00      2948
-<br>                 DoS Hulk       0.75      0.84      0.79       754
-<br>            DoS GoldenEye       0.42      0.50      0.45        10
-<br>               Heartbleed       0.48      0.33      0.39       326
-<br>
-<br>                 accuracy                           1.00   1210452
-<br>                macro avg       0.89      0.81      0.83   1210452
-<br>             weighted avg       1.00      1.00      1.00   1210452
+| **precision** | **recall** | **f1-score** | **support** |
+|---|---|---|---|
+<br>| BENIGN | 1.00 | 1.00 | 1.00 | 1016136 |
+<br>| DDoS | 0.86 | 0.78 | 0.82 | 956 |
+<br>| PortScan | 1.00 | 1.00 | 1.00 | 53043 |
+<br>| Bot | 1.00 | 0.99 | 0.99 | 3934 |
+<br>| Infiltration | 1.00 | 1.00 | 1.00 | 44578 |
+<br>| Web Attack Brute Force | 0.99 | 0.99 | 0.99 | 2257 |
+<br>| Web Attack XSS | 0.99 | 0.99 | 0.99 | 2208 |
+<br>| Web Attack Sql Injection | 1.00 | 1.00 | 1.00 | 3968 |
+<br>| FTP-Patator | 1.00 | 0.33 | 0.50 | 3 |
+<br>| SSH-Patator | 0.83 | 0.33 | 0.48 | 15 |
+<br>| DoS slowloris | 0.99 | 1.00 | 1.00 | 79316 |
+<br>| DoS Slowhttptest | 1.00 | 1.00 | 1.00 | 2948 |
+<br>| DoS Hulk | 0.75 | 0.84 | 0.79 | 754 |
+<br>| DoS GoldenEye | 0.42 | 0.50 | 0.45 | 10 |
+<br>| Heartbleed | 0.48 | 0.33 | 0.39 | 326 |
+<br>| **accuracy** |  |  | 1.00 | 1210452 |
+<br>| **macro avg** | 0.89 | 0.81 | 0.83 | 1210452 |
+<br>| **weighted avg** | 1.00 | 1.00 | 1.00 | 1210452 |
 
 - Feature importence distribution is located in: Images/RF_Feature_Importence.png
 
