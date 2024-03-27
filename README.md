@@ -197,27 +197,26 @@
         - Training run time: 2262.0181295871735 seconds
         - Prediction run time: 19.09727168083191 seconds
 - Trining Results:
-<br>                            precision    recall  f1-score   support
-<br> 
-<br>                    BENIGN       1.00      1.00      1.00   1016137
-<br>                      DDoS       0.99      0.99      0.99       956
-<br>                  PortScan       1.00      1.00      1.00     53043
-<br>                       Bot       1.00      1.00      1.00      3934
-<br>              Infiltration       1.00      1.00      1.00     44578
-<br>   Web Attack  Brute Force       0.99      1.00      0.99      2257
-<br>           Web Attack  XSS       1.00      0.99      1.00      2209
-<br> Web Attack  Sql Injection       1.00      1.00      1.00      3967
-<br>               FTP-Patator       1.00      1.00      1.00         3
-<br>               SSH-Patator       1.00      0.79      0.88        14
-<br>             DoS slowloris       0.99      1.00      1.00     79315
-<br>          DoS Slowhttptest       1.00      1.00      1.00      2949
-<br>                  DoS Hulk       0.97      0.99      0.98       753
-<br>             DoS GoldenEye       0.83      0.91      0.87        11
-<br>                Heartbleed       0.98      0.91      0.94       326
-<br> 
-<br>                  accuracy                           1.00   1210452
-<br>                 macro avg       0.98      0.97      0.98   1210452
-<br>              weighted avg       1.00      1.00      1.00   1210452
+| **Precision** | **Recall** | **F1-score** | **Support** |
+|---|---|---|---|
+| BENIGN | 1.00 | 1.00 | 1.00 | 1016137 |
+| DDoS | 0.99 | 0.99 | 0.99 | 956 |
+| PortScan | 1.00 | 1.00 | 1.00 | 53043 |
+| Bot | 1.00 | 1.00 | 1.00 | 3934 |
+| Infiltration | 1.00 | 1.00 | 1.00 | 44578 |
+| Web Attack Brute Force | 0.99 | 1.00 | 0.99 | 2257 |
+| Web Attack XSS | 1.00 | 0.99 | 1.00 | 2209 |
+| Web Attack Sql Injection | 1.00 | 1.00 | 1.00 | 3967 |
+| FTP-Patator | 1.00 | 1.00 | 1.00 | 3 |
+| SSH-Patator | 1.00 | 0.79 | 0.88 | 14 |
+| DoS slowloris | 0.99 | 1.00 | 1.00 | 79315 |
+| DoS Slowhttptest | 1.00 | 1.00 | 1.00 | 2949 |
+| DoS Hulk | 0.97 | 0.99 | 0.98 | 753 |
+| DoS GoldenEye | 0.83 | 0.91 | 0.87 | 11 |
+| Heartbleed | 0.98 | 0.91 | 0.94 | 326 |
+| **accuracy** |  |  | 1.00 | 1210452 |
+| **macro avg** | 0.98 | 0.97 | 0.98 | 1210452 |
+| **weighted avg** | 1.00 | 1.00 | 1.00 | 1210452 |
 <br>
 - Testing Results:
 <br>                           precision    recall  f1-score   support
