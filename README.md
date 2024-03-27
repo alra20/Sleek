@@ -1,5 +1,11 @@
 <h1><center>SLEEK HOME ASSIGNMENT - ALON RAZON</center></h1>
 
+<br> **Instructions**
+- Locate the file archive.zip in data folder.
+- Run the notebook unzip_file.ipynb to unzip archive.zip.
+- Run the notebook dataset_structure.ipynb.
+  
+
 <br>Objective
 
 <br>This assignment aims to evaluate proficiency in:
